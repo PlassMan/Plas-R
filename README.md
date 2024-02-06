@@ -3,3 +3,10 @@
 # my fork - Xl00727565-77
 # grуd bs
 # br--77
+
+public class Greeting {
+    public static void main(String[] args) {
+        String greeting = "Hi ppl!";
+        System.out.println(greeting);
+    }
+}
