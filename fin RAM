@@ -1,0 +1,42 @@
+import java.util.Random;
+import java.util.Scanner;
+
+public class FinancialGame {
+    public static void main(String[] args) {
+        Random random = new Random();
+        int level = 1;
+        int score = 0;
+        boolean gameOver = false;
+
+        System.out.println("Welcome to the Financial Game!");
+        System.out.println("In this game, you will be presented with financial questions at different levels.");
+        System.out.println("Answer the questions correctly to earn points and advance to the next level.");
+        System.out.println("Be careful, as the questions will get harder as you progress!");
+
+        Scanner scanner = new Scanner(System.in);
+
+        while (!gameOver) {
+            System.out.println("Level " + level);
+            int num1 = random.nextInt(level * 10) + 1;
+            int num2 = random.nextInt(level * 10) + 1;
+            int answer = num1 + num2;
+
+            System.out.println("What is the sum of " + num1 + " and " + num2 + "?");
+            System.out.print("Enter your answer: ");
+            int guess = scanner.nextInt();
+
+            if (guess == answer) {
+                score += level;
+                System.out.println("Correct! You earned " + level + " points.");
+                System.out.println("Your total score is now " + score + ".");
+                level++;
+            } else {
+                System.out.println("Wrong answer. Game over!");
+                gameOver = true;
+            }
+        }
+
+        System.out.println("Game over. Your final score is " + score + ".");
+        scanner.close();
+    }
+}
